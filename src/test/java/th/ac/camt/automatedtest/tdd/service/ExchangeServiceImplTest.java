@@ -31,6 +31,14 @@ class ExchangeServiceImplTest {
     //test cases created by Pee
     @Test
     public void testExchange3(){
+        ExchangeServiceImpl es = new ExchangeServiceImpl();
+        assertThat(es.exchange(CurrencyEnum.EURO,CurrencyEnum.THB,1),
+                is(equalTo(38.65));
+        assertThat(es.exchange(CurrencyEnum.EURO,CurrencyEnum.THB,10),
+                is(closeTo(386.5,0.001)));
+        assertThat(es.exchange(CurrencyEnum.THB,CurrencyEnum.EURO,1),
+                is(closeTo(0.025,0.001)));
+        
 
     }
 
