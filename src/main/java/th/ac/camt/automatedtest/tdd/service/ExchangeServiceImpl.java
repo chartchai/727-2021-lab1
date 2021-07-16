@@ -9,7 +9,10 @@ public class ExchangeServiceImpl {
 
         }if(source==CurrencyEnum.THB && target==CurrencyEnum.EURO){
             result = amount/38.65;
+        }if (source.equals(CurrencyEnum.THB) && target.equals(CurrencyEnum.USD)){
+            result = amount/32.74;
         }
+
         return result;
     }
 

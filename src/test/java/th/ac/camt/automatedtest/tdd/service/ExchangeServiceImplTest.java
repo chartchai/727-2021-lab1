@@ -16,11 +16,13 @@ class ExchangeServiceImplTest {
                 is(equalTo(130.96)));
 
         assertThat(es.exchange(CurrencyEnum.THB, CurrencyEnum.USD, 1 ),
-                is(equalTo(0.031)));
+                is(closeTo(0.031,0.001)));
         assertThat(es.exchange(CurrencyEnum.THB, CurrencyEnum.USD, 5 ),
-                is(equalTo(0.155)));
+                is(closeTo(0.152,0.001)));
         assertThat(es.exchange(CurrencyEnum.THB,CurrencyEnum.EURO,10),
-                is(equalTo(0.26)));
+                is(closeTo(0.26,0.01)));
 
     }
+
+
 }
