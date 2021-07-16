@@ -1,6 +1,7 @@
 package th.ac.camt.automatedtest.tdd.service;
 
 public class ExchangeServiceImpl {
+
     public double exchange(CurrencyEnum source, CurrencyEnum target,double amount){
         double result = 0.00;
         if(source==CurrencyEnum.USD && target==CurrencyEnum.THB){
@@ -11,5 +12,6 @@ public class ExchangeServiceImpl {
         }
         return result;
     }
+
 
 }
