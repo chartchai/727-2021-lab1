@@ -2,26 +2,55 @@ package th.ac.camt.automatedtest.tdd.service;
 
 public class ExchangeServiceImpl {
 
-    public double exchange(CurrencyEnum source, CurrencyEnum target,double amount){
-        double result = 0.00;
-        if(source==CurrencyEnum.USD && target==CurrencyEnum.THB){
-            result = amount*32.74;
-        }if(source==CurrencyEnum.THB && target==CurrencyEnum.EURO){
-            result = amount/38.65;
-        }if (source.equals(CurrencyEnum.THB) && target.equals(CurrencyEnum.USD)){
-            result = amount/32.74;
+    public double exchange(CurrencyEnum source, CurrencyEnum target, double amount) {
 
-        }if(source==CurrencyEnum.EURO && target==CurrencyEnum.THB){
-            result = 38.65 * amount;
-        }if (source.equals(target)){
-            result = amount;
-        }if (source.equals(CurrencyEnum.EURO) && target.equals(CurrencyEnum.USD)){
-            result = amount*1.18;
-        }if (source.equals(CurrencyEnum.USD) && target.equals(CurrencyEnum.EURO)){
-            result = amount*0.85;
+        double exchangeRate = 0;
+        switch (source) {
+            case USD:
+                switch (target) {
+                    case USD:
+                        exchangeRate = 1;
+                        break;
+                    case THB:
+                        exchangeRate = 32.74;
+                        break;
+                    case EURO:
+                        exchangeRate = 0.85;
+                        break;
+                }
+                break;
+            case EURO:
+                switch (target) {
+                    case USD:
+                        exchangeRate = 1.18;
+                        break;
+                    case THB:
+                        exchangeRate = 38.65;
+                        break;
+                    case EURO:
+                        exchangeRate = 1;
+                        break;
+                }
+                break;
+            case THB:
+                switch (target) {
+                    case USD:
+                        exchangeRate = 1 / 32.74;
+                        break;
+                    case THB:
+                        exchangeRate = 1;
+                        break;
+                    case EURO:
+                        exchangeRate = 1 / 38.65;
+                        break;
+                }
+                break;
+            default:
+                exchangeRate = 1;
+                break;
+
         }
-
-        return result;
+        return amount * exchangeRate;
     }
 
 
