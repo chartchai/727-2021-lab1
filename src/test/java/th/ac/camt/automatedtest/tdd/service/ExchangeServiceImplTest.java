@@ -14,6 +14,8 @@ class ExchangeServiceImplTest {
                 is(equalTo(65.48)));
         assertThat(es.exchange(CurrencyEnum.USD,CurrencyEnum.THB,4),
                 is(equalTo(130.96)));
+        assertThat(es.exchange(CurrencyEnum.THB,CurrencyEnum.EURO,10),
+                is(equalTo(0.26)));
 
     }
 }
