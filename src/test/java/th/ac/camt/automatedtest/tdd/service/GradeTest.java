@@ -8,8 +8,10 @@ public class GradeTest {
 
     @Test
     public void testGrade(){
-    ServiceGrade number = new ServiceGrade();
-    assertThat(number.exchangeGrade(Grade.A,92),
-            is(equalTo(Grade.A)));
+        ServiceGrade number = new ServiceGrade();
+        assertThat(number.exchangeGrade(90 ),is(equalTo(Grade.A)));
+        assertThat(number.exchangeGrade(85 ),is(equalTo(Grade.B)));
+        assertThat(number.exchangeGrade(77 ),is(equalTo(Grade.C)));
+        assertThat(number.exchangeGrade(69 ),is(equalTo(Grade.F)));
     }
 }

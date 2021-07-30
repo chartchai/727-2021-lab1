@@ -2,24 +2,16 @@ package th.ac.camt.automatedtest.tdd.service;
 
 public class ServiceGrade {
 
-    public double exchangeGrade(Grade students, int score){
+    public Grade exchangeGrade( int score){
 
-        switch (students) {
-            case A:
-                var b = 90 <= score;
-                break;
-            case B:
-                score = 80;
-                break;
-            case C:
-                score =70 ;
-                break;
-            case F:
-                score =60;
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + students);
+        if (score >= 90){
+            return Grade.A;
+        }if(score >= 80){
+            return Grade.B;
+        }if (score >= 70){
+            return Grade.C;
+        }else{
+            return Grade.F;
         }
-        return score;
     }
 }
