@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="727-2021-lab1" />
         <module name="sample" />
-        <module name="727-2021-lab1" />
       </profile>
     </annotationProcessing>
   </component>
