@@ -4,7 +4,7 @@ import th.ac.camt.automatedtest.tdd.service.Grade;
 
 public class calGradItemService {
     public Grade calGradItem(ScoreItem item){
-//        int avg = ScoreItem.calculateGrade(item.score, item.maxScore);
+
             double avg = (item.score/item.maxScore)*100;
         if(avg >= 80){
             return Grade.A;
