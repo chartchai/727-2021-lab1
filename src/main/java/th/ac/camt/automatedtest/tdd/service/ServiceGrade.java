@@ -2,6 +2,10 @@ package th.ac.camt.automatedtest.tdd.service;
 
 public class ServiceGrade {
 
+    public Grade CalGrade(ScoreItem item){
+        return null;
+    }
+
     public Grade  TotalGrade (int... scores){
         for (int i = 0; i < scores.length; i++) {
             int score = scores[i];
