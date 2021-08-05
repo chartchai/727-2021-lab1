@@ -27,4 +27,19 @@ public class GradeTest {
         assertThat(total.TotalGrade(14,21,15,23),is(equalTo(Grade.B)));
         assertThat(total.TotalGrade(16,22,20,18),is(equalTo(Grade.A)));
     }
+
+    @Test
+    public void calGraed(){
+        ServiceGrade cal = new ServiceGrade();
+        ScoreItem a = new ScoreItem("A",20,40);
+        assertThat(cal.CalGrade(a),is(equalTo(Grade.A)));
+        ScoreItem b = new ScoreItem("B",3,10);
+        assertThat(cal.CalGrade(a),is(equalTo(Grade.B)));
+        ScoreItem C = new ScoreItem("C",34,90);
+        assertThat(cal.CalGrade(a),is(equalTo(Grade.C)));
+        ScoreItem d = new ScoreItem("d",23,67);
+        assertThat(cal.CalGrade(a),is(equalTo(Grade.D)));
+        ScoreItem f = new ScoreItem("f", 2,10 );
+        assertThat(cal.CalGrade(a),is(equalTo(Grade.F)));
+    }
 }
