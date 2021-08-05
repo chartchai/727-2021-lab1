@@ -42,4 +42,13 @@ public class GradeTest {
         ScoreItem f = new ScoreItem("f", 2,10 );
         assertThat(cal.CalGrade(a),is(equalTo(Grade.F)));
     }
+
+    @Test
+    public void CalGraedItem(){
+        ServiceGrade calItem = new ServiceGrade();
+        ScoreItem a = new ScoreItem("A",5,10);
+        assertThat(calItem.CalGradeItemArry(a,5,8,43,78),is(equalTo(Grade.A)));
+        ScoreItem b = new ScoreItem("B",3,5);
+        assertThat(calItem.CalGradeItemArry(b,4,11,32,56),is(equalTo(Grade.B)));
+    }
 }

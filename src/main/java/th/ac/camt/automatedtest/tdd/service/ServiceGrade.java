@@ -2,6 +2,28 @@ package th.ac.camt.automatedtest.tdd.service;
 
 public class ServiceGrade {
 
+    public Grade GradeFinal(int score){
+        return null;
+    }
+
+    public Grade CalGradeItemArry(ScoreItem item, int... scores){
+        for (int i = 0; i < scores.length; i++) {
+            int score = (item.score/item.maxScore)*100;
+            if (score >= 80){
+                return Grade.A;
+            }if (score > 70){
+                return Grade.B;
+            }if (score > 60){
+                return Grade.C;
+            }if (score > 50){
+                return Grade.D;
+            }else {
+                return Grade.F;
+            }
+        }
+        return null;
+    }
+
     public Grade CalGrade(ScoreItem item){
         int scores  = (item.score/item.maxScore)*100;
             if (scores >= 80){
