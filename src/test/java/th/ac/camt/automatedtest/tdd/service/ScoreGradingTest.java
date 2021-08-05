@@ -18,4 +18,15 @@ public class ScoreGradingTest {
         assertThat(grad.grading(101),is(equalTo("?")));
         assertThat(grad.grading(-69),is(equalTo("?")));
     }
+
+    @Test
+    public void testScoregrading(){
+        ScoreGrading gradM = new ScoreGrading();
+        assertThat(gradM.gradingMultiple(1,2,3),is(equalTo(Grade.F)));
+        assertThat(gradM.gradingMultiple(10,20,30),is(equalTo(Grade.D)));
+        assertThat(gradM.gradingMultiple(11,34,0,22),is(equalTo(Grade.C)));
+        assertThat(gradM.gradingMultiple(20,20,25,10),is(equalTo(Grade.B)));
+        assertThat(gradM.gradingMultiple(100,2),is(equalTo(Grade.A)));
+
+    }
 }
