@@ -1,7 +1,7 @@
 package th.ac.camt.automatedtest.tdd.service;
 
 public class Adder {
-    public int add(int x,int y){
+    public int Add(int x,int y){
 
         int first = x;
         int second =y;
@@ -11,4 +11,9 @@ public class Adder {
         }
         return result;
     }
+
+    public String ParamsWithVarargs(String... args){
+        return null;
+    }
+
 }
