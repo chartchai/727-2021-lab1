@@ -1,6 +1,13 @@
 package th.ac.camt.automatedtest.tdd.service;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import th.ac.camt.automatedtest.tdd.service.Exception.ScoreOverspendException;
+import th.ac.camt.automatedtest.tdd.service.Exception.ScoreZeroException;
+
+import javax.print.attribute.standard.MediaSize;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -31,15 +38,15 @@ public class GradeTest {
     @Test
     public void calGraed(){
         ServiceGrade cal = new ServiceGrade();
-        ScoreItem a = new ScoreItem("A",20,40);
+        ScoreItem a = new ScoreItem("A",66,68);
         assertThat(cal.CalGrade(a),is(equalTo(Grade.A)));
-        ScoreItem b = new ScoreItem("B",3,10);
+        ScoreItem b = new ScoreItem("B",72,88);
         assertThat(cal.CalGrade(a),is(equalTo(Grade.B)));
         ScoreItem C = new ScoreItem("C",34,90);
         assertThat(cal.CalGrade(a),is(equalTo(Grade.C)));
-        ScoreItem d = new ScoreItem("d",23,67);
+        ScoreItem d = new ScoreItem("d",31,61);
         assertThat(cal.CalGrade(a),is(equalTo(Grade.D)));
-        ScoreItem f = new ScoreItem("f", 2,10 );
+        ScoreItem f = new ScoreItem("f", 20,40 );
         assertThat(cal.CalGrade(a),is(equalTo(Grade.F)));
     }
 
@@ -51,4 +58,26 @@ public class GradeTest {
         ScoreItem b = new ScoreItem("B",3,5);
         assertThat(calItem.CalGradeItemArry(b,4,11,32,56),is(equalTo(Grade.B)));
     }
-}
+
+    @Test
+    public void ChenckSore(){
+        Assertions.assertThrows(ScoreZeroException  .class, () -> {
+            ServiceGrade cal = new ServiceGrade();
+            ScoreItem a = new ScoreItem("A",0,68);
+            cal.CalGrade(a);
+        });
+
+        Assertions.assertThrows(NullPointerException.class, () -> {
+                    ServiceGrade cal = new ServiceGrade();
+                    ScoreItem a = new ScoreItem("A", null, null);
+                    cal.CalGrade(a);
+                });
+
+            Assertions.assertThrows(ScoreOverspendException.class, () -> {
+                ServiceGrade cal = new ServiceGrade();
+                ScoreItem b = new ScoreItem("A", -23, -34);
+                cal.CalGrade(b);
+            });
+
+        }
+    }

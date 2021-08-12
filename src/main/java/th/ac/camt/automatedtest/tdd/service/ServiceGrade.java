@@ -1,5 +1,8 @@
 package th.ac.camt.automatedtest.tdd.service;
 
+import th.ac.camt.automatedtest.tdd.service.Exception.ScoreOverspendException;
+import th.ac.camt.automatedtest.tdd.service.Exception.ScoreZeroException;
+
 public class ServiceGrade {
 
     public Grade GradeFinal(int score){
@@ -25,6 +28,13 @@ public class ServiceGrade {
     }
 
     public Grade CalGrade(ScoreItem item){
+        if (item.score == 0){
+            throw new ScoreZeroException();
+        }if (item.score == null){
+            throw new NullPointerException();
+        }if (item.score < 0){
+            throw new ScoreOverspendException();
+        }
         int scores  = (item.score/item.maxScore)*100;
             if (scores >= 80){
                 return Grade.A;
