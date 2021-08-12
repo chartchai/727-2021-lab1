@@ -24,6 +24,13 @@ class AdderTest {
         assertThat(adder.Add(0,0),is(equalTo(0)));
     }
 
+    //update test case
+    @Test
+    @Parameters({"1,2" , "-1,2", "0,2" , "2,2" , "-1,0" , "0,0"})
+    public void param_object(String... args){
+        assertThat(args).isEqualTo(new String[]{("0")});
+    }
+
     @Test
     @Parameters({"1,2", "2,2","2,6"})
     public void paramsInAnnotation(String x, Integer y) {
@@ -45,7 +52,6 @@ class AdderTest {
     @Parameters({ "value1, value2", "value3, value4" })
     @TestCaseName("[{index}] {method}: {params}")
     public void X1(String param1, String param2){}
-
 
     @Test
     @Parameters
