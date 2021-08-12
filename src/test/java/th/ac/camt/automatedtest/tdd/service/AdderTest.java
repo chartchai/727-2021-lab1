@@ -7,11 +7,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.Matchers.*;
 import junitparams.*;
+import org.junit.runner.RunWith;
 
 import static junitparams.JUnitParamsRunner.*;
 
 
-
+@RunWith(JUnitParamsRunner.class)
 class AdderTest {
     @Test
     public void Add(){
@@ -59,4 +60,6 @@ class AdderTest {
     private Object parametersForParams_in_defaul_method(){
         return new Object[]{new Object[]{"A",1} , new Object[]{"B",2}};
     }
+
+
 }
