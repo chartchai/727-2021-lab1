@@ -35,6 +35,7 @@ public class ServiceGrade {
         }if (item.score < 0){
             throw new ScoreOverspendException();
         }
+
         int scores  = (item.score/item.maxScore)*100;
             if (scores >= 80){
                 return Grade.A;
@@ -47,24 +48,25 @@ public class ServiceGrade {
             }else {
                 return Grade.F;
             }
+
     }
 
-    public Grade  TotalGrade (int... scores){
-        for (int i = 0; i < scores.length; i++) {
-            int score = scores[i];
-            if (score >= 80){
+    public Grade  TotalGrade (int... score){
+        for (int i = 0; i < score.length; i++) {
+            int scores = score[i];
+            if (scores >= 80){
                 return Grade.A;
-            }if (score > 70){
+            }if (scores > 70){
                 return Grade.B;
-            }if (score > 60){
+            }if (scores > 60){
                 return Grade.C;
-            }if (score > 50){
+            }if (scores > 50){
                 return Grade.D;
             }else {
                 return Grade.F;
             }
         }
-        return Grade.A;
+        return null;
     }
 
     public Grade GradeCalculated( int score){
