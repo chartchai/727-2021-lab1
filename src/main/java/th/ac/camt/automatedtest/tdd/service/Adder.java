@@ -2,6 +2,13 @@ package th.ac.camt.automatedtest.tdd.service;
 
 public class Adder {
     public int add(int x,int y){
-        return 0;
+
+        int first = x;
+        int second =y;
+        int result = first + second;
+        if (result < 0){
+            return 0;
+        }
+        return result;
     }
 }
