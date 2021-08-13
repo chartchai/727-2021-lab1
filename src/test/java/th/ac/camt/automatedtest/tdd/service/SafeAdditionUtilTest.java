@@ -2,8 +2,12 @@ package th.ac.camt.automatedtest.tdd.service;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import junitparams.naming.TestCaseName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,6 +27,31 @@ public class SafeAdditionUtilTest {
     public void MthodName(int a,int b , int exprctedValud){
         assertEquals(exprctedValud , serviceUnderTest.SafeAdd(a, b));
     }
+
+    @Test
+    @Parameters({"88|A", "44|b"})
+    @TestCaseName("[{index}] {method}: {params}")
+    public void  TestGraedParaM(int score, String grade){
+        ServiceGrade serviceGrade = new ServiceGrade();
+        assertThat(serviceGrade.GradeCalculated(score),is(grade));
+    }
+
+
+    @Test
+    @Parameters(method = "TestParam")
+    public void testParam(int[] input,String expectedResult){
+        ServiceGrade serviceGrade = new ServiceGrade();
+        assertThat(serviceGrade.TotalGrade(input),is(expectedResult));
+    }
+
+    public Object TestParam(){
+        return new Object[][]{
+            {new int[]{39,78,98}, "A"},
+            {new int[]{9,83,32}, "b"},
+            {new int[]{3,71,11}, "c"}
+        };
+    }
+
 
     @Test
     @Parameters(method = "parametersToTestAdd")

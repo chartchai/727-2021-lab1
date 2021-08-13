@@ -26,11 +26,6 @@ class AdderTest {
     }
 
     //update test case
-    @Test
-    @Parameters({"1,2" , "-1,2", "0,2" , "2,2" , "-1,0" , "0,0"})
-    public void param_object(String... args){
-        assertThat(args).isEqualTo(new String[]{("0")});
-    }
 
     @Test
     @Parameters({"1,2", "2,2","2,6"})
@@ -38,16 +33,6 @@ class AdderTest {
 
     }
 
-    @Test
-    @Parameters(method = "name01")
-    public void ParamsWithVarargs(String... args) {
-        assertThat(args).isEqualTo(new String[]{"A","B"});
-    }
-    private Object name01(){
-        return new Object[]{
-                new String[]{"A","B"}
-        };
-    }
 
     @Test
     @Parameters({ "value1, value2", "value3, value4" })

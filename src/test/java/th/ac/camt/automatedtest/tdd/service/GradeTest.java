@@ -48,6 +48,7 @@ public class GradeTest {
         assertThat(cal.CalGrade(a),is(equalTo(Grade.F)));
     }
 
+
     @Test
     public void CalGraedItem(){
         ServiceGrade calItem = new ServiceGrade();
