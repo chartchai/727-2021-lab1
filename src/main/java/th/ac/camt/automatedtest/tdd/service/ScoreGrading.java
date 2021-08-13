@@ -5,6 +5,7 @@ import th.ac.camt.automatedtest.tdd.service.Item.exception.*;
 
 public class ScoreGrading {
     public Grade grading(ScoreItem item){
+
         if(item.getMaxScore() == null){
             throw new NullMaxScoreException();
         } else if (item.getScore() == null){

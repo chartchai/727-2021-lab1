@@ -34,7 +34,6 @@ public class ScoreGradingTest {
 
     @Test
     public void gradingTest(){
-
         Assertions.assertThrows(NullScoreException.class, ()->{
             ScoreGrading exception = new ScoreGrading();
             ScoreItem pii = new ScoreItem("Pii",null, 100.0);
