@@ -28,7 +28,7 @@ class ClassroomServiceImplTest {
 
     @Test
     void getTotalGpaStubCeilDown(){
-        ClassroomDao classroomDao = new ClassroomDaoStub1();
+        ClassroomDao classroomDao = new ClassroomDaoStub2();
         ClassroomServiceImpl classroomService = new ClassroomServiceImpl();
         classroomService.setClassroomDao(classroomDao);
         assertThat(classroomService.getTotalGpa(),is(closeTo(2.66, 0.005)));
@@ -36,7 +36,7 @@ class ClassroomServiceImplTest {
 
     @Test
     void getTotalGpaStubCeilUp(){
-        ClassroomDao classroomDao = new ClassroomDaoStub1();
+        ClassroomDao classroomDao = new ClassroomDaoStub3();
         ClassroomServiceImpl classroomService = new ClassroomServiceImpl();
         classroomService.setClassroomDao(classroomDao);
         assertThat(classroomService.getTotalGpa(),is(closeTo(3.16, 0.005)));
@@ -45,9 +45,10 @@ class ClassroomServiceImplTest {
     @Test
     void getTotalGpaStubFail(){
         Assertions.assertThrows(NoGpaException.class,()->{
-            ClassroomDao classroomDao = new ClassroomDaoStub1();
+            ClassroomDao classroomDao = new ClassroomDaoStub4();
             ClassroomServiceImpl classroomService = new ClassroomServiceImpl();
             classroomService.setClassroomDao(classroomDao);
+            classroomService.getTotalGpa();
         });
 
     }
