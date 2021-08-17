@@ -20,8 +20,14 @@ public class ClassRoomServiceImpl implements ClassRoomService{
     }
 
     public double getTotalGpa() {
-        return 2.3;
-   };
+       return 2.3;
+   }
+
+    @Override
+    public double getTotalGpa(int roomId) {
+        return 0;
+    }
+
 
     public double getStub1(){
         return 2.66;
