@@ -11,6 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.hamcrest.Matchers.*;
 
 class StudentServiceImplTest {
 
@@ -41,8 +42,23 @@ class StudentServiceImplTest {
                 )
         );
         StudentService studentService = new StudentServiceImpl(studentDao);
-        assertThat(studentService.getStudentGPALessThan(2.7),
+        assertThat(studentService.getStudentGPAHigherThan(2.7),
                 hasItems(new Student("003","Ploy",2.8),
                         new Student("001","Kong",3.8)));
+    }
+
+    @Test
+    void testGetStudentGPALessThan1() {
+        StudentDao studentDao = mock(StudentDao.class);
+        when(studentDao.getAllStudent()).thenReturn(
+                Arrays.asList(new Student("001","Pii",2.6),
+                        new Student("002","Nan",2.5),
+                        new Student("003","Ploy",2.8),
+                        new Student("001","Kong",3.8)
+                )
+        );
+        StudentService studentService = new StudentServiceImpl(studentDao);
+        assertThat(studentService.getStudentById("003"),
+                is(new Student("003","Ploy",2.8)));
     }
 }

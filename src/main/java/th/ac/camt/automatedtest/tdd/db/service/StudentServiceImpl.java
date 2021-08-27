@@ -22,4 +22,9 @@ public class StudentServiceImpl implements  StudentService{
     public List<Student> getStudentGPAHigherThan(double gpa) {
         return null;
     }
+
+    @Override
+    public Student getStudentById(String id) {
+        return null;
+    }
 }

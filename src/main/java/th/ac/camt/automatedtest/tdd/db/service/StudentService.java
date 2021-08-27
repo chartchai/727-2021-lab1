@@ -7,4 +7,5 @@ import java.util.List;
 public interface StudentService {
     List<Student> getStudentGPALessThan(double gpa);
     List<Student> getStudentGPAHigherThan(double gpa);
+    Student getStudentById(String id);
 }
