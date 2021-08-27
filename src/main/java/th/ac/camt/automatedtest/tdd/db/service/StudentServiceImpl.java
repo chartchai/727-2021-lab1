@@ -17,4 +17,9 @@ public class StudentServiceImpl implements  StudentService{
     public List<Student> getStudentGPALessThan(double gpa) {
         return null;
     }
+
+    @Override
+    public List<Student> getStudentGPAHigherThan(double gpa) {
+        return null;
+    }
 }

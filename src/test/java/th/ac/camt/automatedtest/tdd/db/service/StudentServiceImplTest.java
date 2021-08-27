@@ -26,6 +26,22 @@ class StudentServiceImplTest {
         );
         StudentService studentService = new StudentServiceImpl(studentDao);
         assertThat(studentService.getStudentGPALessThan(2.7),
+                hasItems(new Student("001","Pii",2.6),
+                        new Student("002","Nan",2.5)));
+    }
+
+    @Test
+    void testGetStudentGPALessThan() {
+        StudentDao studentDao = mock(StudentDao.class);
+        when(studentDao.getAllStudent()).thenReturn(
+                Arrays.asList(new Student("001","Pii",2.6),
+                        new Student("002","Nan",2.5),
+                        new Student("003","Ploy",2.8),
+                        new Student("001","Kong",3.8)
+                )
+        );
+        StudentService studentService = new StudentServiceImpl(studentDao);
+        assertThat(studentService.getStudentGPALessThan(2.7),
                 hasItems(new Student("003","Ploy",2.8),
                         new Student("001","Kong",3.8)));
     }
