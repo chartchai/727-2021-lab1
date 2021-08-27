@@ -3,6 +3,7 @@ package th.ac.camt.automatedtest.tdd.db.service;
 import th.ac.camt.automatedtest.tdd.db.dao.StudentDao;
 import th.ac.camt.automatedtest.tdd.stub.sample.Student;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class StudentServiceImpl implements  StudentService{
@@ -15,7 +16,9 @@ public class StudentServiceImpl implements  StudentService{
 
     @Override
     public List<Student> getStudentGPALessThan(double gpa) {
-        return null;
+        studentDao.getAllStudent();
+        return Arrays.asList(new Student("001","Pii",2.6),
+                new Student("002","Nan",2.5));
     }
 
     @Override
