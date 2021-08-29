@@ -8,4 +8,9 @@ public class ClassroomDaoImpl implements ClassroomDao {
         return null;
     }
 
+    @Override
+    public List<Student> getStudents(int roomNo) {
+        return null;
+    }
+
 }

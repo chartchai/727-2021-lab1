@@ -2,7 +2,7 @@ package th.ac.camt.automatedtest.tdd.service.stubPii;
 
 import java.util.List;
 
-public interface ClassroomDao {
+public interface StudentDao {
     List<Student> getStudents();
-    List<Student> getStudents(int roomNo);
+
 }
