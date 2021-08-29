@@ -13,4 +13,9 @@ public class ClassroomDaoStub2 implements ClassroomDao{
         output.add(new Student("20204089","Oil",4.00));
         return output;
     }
+
+    @Override
+    public List<Student> getStudents(int roomNo) {
+        return null;
+    }
 }
